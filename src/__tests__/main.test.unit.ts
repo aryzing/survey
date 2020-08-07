@@ -1,7 +1,7 @@
-import { HELLO_WORLD } from '@/main'
+import { HELLO_WORLD } from "@/main";
 
-describe('Example suite', () => {
-  test('failing', () => {
-    expect(HELLO_WORLD).not.toEqual('Hello World')
-  })
-})
+describe("example suite", () => {
+  it("failing", () => {
+    expect(HELLO_WORLD).not.toEqual("Hello World");
+  });
+});

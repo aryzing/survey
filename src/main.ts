@@ -1,3 +1,3 @@
-import 'styles/main.css'
+import "styles/main.css";
 
-export const HELLO_WORLD = 'Hello World'
+export const HELLO_WORLD = "Hello World";

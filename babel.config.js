@@ -1,44 +1,42 @@
-module.exports = function config(api) {
-  const isTest = api.env() === 'test'
-  api.cache(true)
+module.exports = (api) => {
+  const isTest = api.env() === "test";
+  api.cache(true);
 
   const config = {
     plugins: [
-      '@babel/proposal-private-methods',
-      '@babel/proposal-class-properties',
-      '@babel/plugin-transform-runtime'
+      "@babel/proposal-private-methods",
+      "@babel/proposal-class-properties",
+      "@babel/plugin-transform-runtime",
     ],
-    presets: [
-      '@babel/typescript',
-    ]
-  }
+    presets: ["@babel/typescript"],
+  };
 
   if (isTest) {
-    config.plugins.push('@babel/plugin-transform-modules-commonjs')
+    config.plugins.push("@babel/plugin-transform-modules-commonjs");
     config.presets.push([
-      '@babel/preset-env',
+      "@babel/preset-env",
       {
-        useBuiltIns: 'usage',
-        modules: 'commonjs',
+        useBuiltIns: "usage",
+        modules: "commonjs",
         corejs: 3,
         targets: {
-          node: 'current'
-        }
-      }
-    ])
+          node: "current",
+        },
+      },
+    ]);
 
-    return config
+    return config;
   }
 
   config.presets.push([
-    '@babel/preset-env',
+    "@babel/preset-env",
     {
       loose: true,
       modules: false,
-      useBuiltIns: 'usage',
-      corejs: 3
-    }
-  ])
+      useBuiltIns: "usage",
+      corejs: 3,
+    },
+  ]);
 
-  return config 
-}
+  return config;
+};
