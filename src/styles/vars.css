@@ -1,0 +1,12 @@
+:root {
+  --color-black: #18283a;
+  --color-midnight: #163d69;
+  --color-light_grey: #ebf0f6;
+  --color-grey: #556373;
+  --color-silver: #c4ced9;
+  --color-storm: #5e7997;
+  --color-subtle: #f9fbfe;
+  --color-white: #ffffff;
+
+  --font: 'Open Sans', system, -apple-system, sans-serif;
+}

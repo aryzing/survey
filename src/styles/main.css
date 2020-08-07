@@ -1,0 +1,8 @@
+@import 'styles/vars.css';
+
+html,
+body {
+  color: var(--color-black);
+  font-family: var(--font);
+  text-align: center;
+}
