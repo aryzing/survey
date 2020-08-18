@@ -3,6 +3,9 @@ module.exports = {
   transform: {
     "^.+\\.(j|t)sx?$": "babel-jest",
   },
+  transformIgnorePatterns: [
+    "node_modules/(?!(lit-html|testing-library__dom)/)",
+  ],
   moduleNameMapper: {
     "\\.(css|postcss|less|stylus|styl|sass|scss)$":
       "<rootDir>/__files__/test.stub.js",

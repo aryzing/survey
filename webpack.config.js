@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const express = require("express");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const mockSurvey = require("./__files__/survey.json");
 const mockFilterDefinition = require("./__files__/filter-definition.json");
 
@@ -8,6 +9,8 @@ module.exports = {
   entry: path.join(__dirname, "src", "main"),
 
   mode: "development",
+
+  devtool: "eval-source-map",
 
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -85,5 +88,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "template.html"),
     }),
+    new FaviconsWebpackPlugin("__files__/logo-favicon.svg"),
   ],
 };
