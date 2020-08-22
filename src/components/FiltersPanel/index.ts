@@ -1,7 +1,7 @@
 import { html, TemplateResult } from "lit-html";
 import logError from "@/helpers/logger";
 import db from "@/db";
-import toRoundedPercent from "@/helpers/toPercent";
+import toRoundedPercent from "@/helpers/toRoundedPercent";
 import Component from "../Component";
 import styles from "./styles";
 
@@ -54,7 +54,9 @@ export default class FiltersPanel extends Component {
           return "";
         }
 
-        // PRo calculation
+        /**
+         * Represents PR(o) as described in the README.
+         */
         const PRo = option.edgesRespondent.size / f.edgesRespondent.size;
 
         const { display, isActive } = option;

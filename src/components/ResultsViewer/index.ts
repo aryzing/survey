@@ -78,24 +78,18 @@ export default class ResultsViewer extends Component<Props> {
           };
         }
 
-        // PRa calculation
+        /**
+         * Represents PR(a) as described in the README.
+         */
         const PRa = answer.edgesRespondent.size / q.edgesRespondent.size;
 
-        // PRFa calculation
         const filteredRespondentsThatProvidedCurrentAnswer = filteredRespondents.filter(
           (r) => r.edgesAnswer.has(aId)
         );
 
-        console.log(
-          "Number filtered respondents for current answer: ",
-          filteredRespondentsThatProvidedCurrentAnswer.length
-        );
-
-        console.log(
-          "Total number filtered respondents: ",
-          filteredRespondents.length
-        );
-
+        /**
+         * Represents PRF(a) as described in the README.
+         */
         const PRFa = filteredRespondents.length
           ? filteredRespondentsThatProvidedCurrentAnswer.length /
             filteredRespondents.length

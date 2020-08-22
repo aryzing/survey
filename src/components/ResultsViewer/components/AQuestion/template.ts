@@ -1,10 +1,11 @@
-import toRoundedPercent from "@/helpers/toPercent";
+import toRoundedPercent from "@/helpers/toRoundedPercent";
 import { html, TemplateResult } from "lit-html";
 import type { AnswerWithStats } from "../../types";
 import styles from "./styles";
 
 export default (
   title: string,
+  type: string,
   answers: AnswerWithStats[]
 ): TemplateResult => html`
   ${styles}
@@ -19,5 +20,6 @@ export default (
         </li>`;
       })}
     </ul>
+    <span>${type}</span>
   </div>
 `;

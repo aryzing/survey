@@ -90,7 +90,7 @@ export default class TestTaskApp extends Component<unknown, State> {
     // type guards to guarantee integrity of the received data.
     // https://www.typescriptlang.org/docs/handbook/advanced-types.html#user-defined-type-guards
     //
-    // This exercise will cast the values
+    // This exercise will cast the values.
 
     this.setState({
       ...this.state,

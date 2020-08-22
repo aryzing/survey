@@ -4,7 +4,8 @@ module.exports = {
     {
       files: ["src/**/*.ts"],
 
-      // Our TS files use the latest syntax and expect a browser environment.
+      // The TS files in this test task use the latest syntax and expect a
+      // browser environment.
       env: {
         browser: true,
         es2020: true,
@@ -78,17 +79,6 @@ module.exports = {
       rules: {
         // keeping recommended defaults
       },
-      // overrides: [
-      //     {
-      //         files: ['config/jestSetup/*.js'],
-      //         env: {
-      //             jest: true,
-      //         },
-      //         globals: {
-      //             window: true,
-      //         },
-      //     },
-      // ],
     },
   ],
 };

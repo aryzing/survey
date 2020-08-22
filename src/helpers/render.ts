@@ -10,6 +10,11 @@ type Utils<P, S> = {
 };
 export type RenderReturn<P, S> = Utils<P, S> & BF;
 
+/**
+ * Meant to be used inside tests only. Facilitates rendering this test task's
+ * `Component`s and hooks the rendered element with @testing-library/dom
+ * helpers.
+ */
 function render<P2, S2>(
   CustomElement: new (props: P2) => Component<P2, S2>,
   props: P2

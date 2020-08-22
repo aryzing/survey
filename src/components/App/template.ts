@@ -1,5 +1,4 @@
 import { html, TemplateResult } from "lit-html";
-import { FilterDefinition, Survey } from "@/types";
 import render from "@/helpers/renderDirective";
 import ResultsViewer from "../ResultsViewer";
 import FiltersPanel from "../FiltersPanel";
@@ -20,7 +19,7 @@ const baseTemplate = (s1: unknown, s2: unknown) => html`
 `;
 
 export const loadingTemplate = (): TemplateResult =>
-  baseTemplate(html`<p>Loading</p>`, html`<p>Loading</p>`);
+  baseTemplate(html`<p>Loading...</p>`, html`<p>Loading...</p>`);
 
 export const errorTemplate = (error: unknown): TemplateResult =>
   baseTemplate(html`<pre>${JSON.stringify(error, null, 2)}</pre>`, "");

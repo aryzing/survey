@@ -6,7 +6,6 @@ html,
 body {
   color: var(--color-midnight);
   font-family: var(--font);
-  /* text-align: center; */
   height: 100%;
   background-color: var(--color-subtle);
 }
