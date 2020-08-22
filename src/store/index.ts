@@ -4,10 +4,10 @@ import type {
   GQuestion,
   GAnswer,
   GFilter,
+  GStore,
+  Listener,
+  Unsubscribe,
 } from "./types";
-
-type Listener = () => void;
-type Unsubscribe = () => void;
 
 let listeners: Array<Listener> = [];
 
@@ -35,7 +35,7 @@ const Answers = new Map<string, GAnswer>();
 
 const Filters = new Map<string, GFilter>();
 
-const db = {
+const store: GStore = {
   subscribe,
   hasChanged,
   Options,
@@ -45,4 +45,4 @@ const db = {
   Filters,
 };
 
-export default db;
+export default store;

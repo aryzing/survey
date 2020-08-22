@@ -1,8 +1,8 @@
 import { html, TemplateResult } from "lit-html";
 import logError from "@/helpers/logger";
 import { Survey, FilterDefinition } from "@/types";
-import seedDb from "@/db/seedDb";
-import db from "@/db";
+import initStore from "@/store/initStore";
+import store from "@/store";
 import Component from "../Component";
 import { loadingTemplate, errorTemplate, dataTemplate } from "./template";
 
@@ -38,7 +38,7 @@ export default class TestTaskApp extends Component<unknown, State> {
       },
     };
 
-    this.unsubscribe = db.subscribe(() => this.renderIntoShadowDom());
+    this.unsubscribe = store.subscribe(() => this.renderIntoShadowDom());
   }
 
   async connectedCallback(): Promise<void> {
@@ -106,8 +106,8 @@ export default class TestTaskApp extends Component<unknown, State> {
       },
     });
 
-    seedDb(survey as Survey, filterDefinition as FilterDefinition);
-    db.hasChanged();
+    initStore(survey as Survey, filterDefinition as FilterDefinition);
+    store.hasChanged();
   }
 
   disconnectedCallback(): void {

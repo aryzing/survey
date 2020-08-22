@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AQuestion Component Renders properly 1`] = `
+<h4>
+  <!---->
+  test-question-title
+  <!---->
+</h4>
+`;
+
+exports[`AQuestion Component Renders properly 2`] = `
+<span>
+  <!---->
+  Multiple choice
+  <!---->
+</span>
+`;
+
+exports[`AQuestion Component Renders properly 3`] = `
+<span
+  class="answer-text"
+>
+  <!---->
+  test-answer-1
+  <!---->
+</span>
+`;
+
+exports[`AQuestion Component Renders properly 4`] = `
+<span>
+  <!---->
+  11
+  <!---->
+</span>
+`;
+
+exports[`AQuestion Component Renders properly 5`] = `
+<span>
+  <!---->
+  12
+  <!---->
+</span>
+`;
+
+exports[`AQuestion Component Renders properly 6`] = `
+<span
+  class="answer-text"
+>
+  <!---->
+  test-answer-2
+  <!---->
+</span>
+`;
+
+exports[`AQuestion Component Renders properly 7`] = `
+<span>
+  <!---->
+  21
+  <!---->
+</span>
+`;
+
+exports[`AQuestion Component Renders properly 8`] = `
+<span>
+  <!---->
+  22
+  <!---->
+</span>
+`;

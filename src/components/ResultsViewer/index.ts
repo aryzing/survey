@@ -1,10 +1,10 @@
 import { html, TemplateResult } from "lit-html";
-import db from "@/db";
+import store from "@/store";
 import logError from "@/helpers/logger";
-import { GRespondentDemographic, GFilter } from "@/db/types";
+import type { GFilter } from "@/store/types";
 import template from "./template";
 import Component from "../Component";
-import { QuestionWithStats } from "./types";
+import type { QuestionWithStats } from "./types";
 
 export interface Props {
   surveyTitle: string;
@@ -15,9 +15,9 @@ export default class ResultsViewer extends Component<Props> {
     const { surveyTitle } = this.props;
 
     const questionsWithStats: QuestionWithStats[] = Array.from(
-      db.Questions.values()
+      store.Questions.values()
     ).map((q) => {
-      const activeOptions = Array.from(db.Options.values()).filter(
+      const activeOptions = Array.from(store.Options.values()).filter(
         (o) => o.isActive
       );
 
@@ -25,7 +25,7 @@ export default class ResultsViewer extends Component<Props> {
       activeOptions.forEach((o) => activeOptionFilterIds.add(o.filterId));
 
       const activeFilters = Array.from(activeOptionFilterIds.values())
-        .map((fId) => db.Filters.get(fId))
+        .map((fId) => store.Filters.get(fId))
         .filter((f) => f) as GFilter[];
 
       /**
@@ -36,7 +36,7 @@ export default class ResultsViewer extends Component<Props> {
        * In other words, options are "OR"ed against the value of a particular
        * demographic, and filters are "AND"ed across all demographics.
        */
-      const filteredRespondents = Array.from(db.Respondents.values()).filter(
+      const filteredRespondents = Array.from(store.Respondents.values()).filter(
         (r) => {
           // This reducer acts as the "AND" for filters across all demographics
           return activeFilters.reduce<boolean>(
@@ -67,7 +67,7 @@ export default class ResultsViewer extends Component<Props> {
       );
 
       const answers = Array.from(q.edgesAnswer.values()).map((aId) => {
-        const answer = db.Answers.get(aId);
+        const answer = store.Answers.get(aId);
 
         if (!answer) {
           logError("Expected answer to be defined");
@@ -84,7 +84,7 @@ export default class ResultsViewer extends Component<Props> {
         const PRa = answer.edgesRespondent.size / q.edgesRespondent.size;
 
         const filteredRespondentsThatProvidedCurrentAnswer = filteredRespondents.filter(
-          (r) => r.edgesAnswer.has(aId)
+          (r) => r.edgesAnswer.has(answer.id)
         );
 
         /**

@@ -1,6 +1,6 @@
 import { html, TemplateResult } from "lit-html";
 import logError from "@/helpers/logger";
-import db from "@/db";
+import store from "@/store";
 import toRoundedPercent from "@/helpers/toRoundedPercent";
 import Component from "../Component";
 import styles from "./styles";
@@ -11,7 +11,7 @@ export default class FiltersPanel extends Component {
   constructor(props: unknown) {
     super(props);
 
-    this.unsubscribe = db.subscribe(() => this.renderIntoShadowDom());
+    this.unsubscribe = store.subscribe(() => this.renderIntoShadowDom());
   }
 
   disconnectedCallback(): void {
@@ -33,7 +33,7 @@ export default class FiltersPanel extends Component {
       return;
     }
 
-    const option = db.Options.get(optionId);
+    const option = store.Options.get(optionId);
 
     if (!option) {
       logError("Expected option to exist");
@@ -41,14 +41,14 @@ export default class FiltersPanel extends Component {
     }
 
     option.isActive = !option.isActive;
-    db.hasChanged();
+    store.hasChanged();
   };
 
   render = (): TemplateResult => {
     return html`${styles}
-    ${Array.from(db.Filters.values()).map((f) => {
+    ${Array.from(store.Filters.values()).map((f) => {
       const optionsHtml = Array.from(f.edgesOption).map((oId) => {
-        const option = db.Options.get(oId);
+        const option = store.Options.get(oId);
 
         if (!option) {
           return "";
