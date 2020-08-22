@@ -53,6 +53,7 @@ export default (survey: Survey, filterDefinition: FilterDefinition): void => {
         isActive: false,
         name: o.name,
         edgesRespondent: new Set<string>(),
+        filterId: fId,
       });
 
       db.Filters.get(fId)?.edgesOption.add(oId);

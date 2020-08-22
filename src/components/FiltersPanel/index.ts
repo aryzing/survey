@@ -1,6 +1,7 @@
 import { html, TemplateResult } from "lit-html";
 import logError from "@/helpers/logger";
 import db from "@/db";
+import toRoundedPercent from "@/helpers/toPercent";
 import Component from "../Component";
 import styles from "./styles";
 
@@ -53,10 +54,13 @@ export default class FiltersPanel extends Component {
           return "";
         }
 
+        // PRo calculation
+        const PRo = option.edgesRespondent.size / f.edgesRespondent.size;
+
         const { display, isActive } = option;
 
         return html`<li @click=${this.handleOptionToggle} data-option-id=${oId}>
-          ${display} ${isActive ? " [on]" : ""}
+          ${display} =${toRoundedPercent(PRo)}= ${isActive ? " [on]" : ""}
         </li>`;
       });
 

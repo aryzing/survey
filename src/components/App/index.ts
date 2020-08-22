@@ -108,7 +108,6 @@ export default class TestTaskApp extends Component<unknown, State> {
 
     seedDb(survey as Survey, filterDefinition as FilterDefinition);
     db.hasChanged();
-    console.log(db);
   }
 
   disconnectedCallback(): void {
