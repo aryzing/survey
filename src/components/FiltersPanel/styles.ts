@@ -30,11 +30,13 @@ export const styles = html`
     }
 
     .option-toggle {
+      cursor: pointer;
       display: flex;
       justify-content: space-between;
       border: 1px solid #c5cfda;
       padding: 8px;
       background-color: var(--color-white);
+      transition: background-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
     }
 
     .active {
