@@ -47,34 +47,45 @@ export class FiltersPanel extends Component {
   };
 
   render = (): TemplateResult => {
-    return html`${styles}
-    ${Array.from(store.Filters.values()).map((f) => {
-      const optionsHtml = Array.from(f.edgesOption).map((oId) => {
-        const option = store.Options.get(oId);
+    return html` ${styles}
+      <div class="container">
+        <h2 class="title">Filters</h2>
+        <div class="options-container">
+          ${Array.from(store.Filters.values()).map((f) => {
+            const optionsHtml = Array.from(f.edgesOption).map((oId) => {
+              const option = store.Options.get(oId);
 
-        if (!option) {
-          return "";
-        }
+              if (!option) {
+                return "";
+              }
 
-        const { display, isActive } = option;
+              const { display, isActive } = option;
 
-        return html`<li
-          @click=${this.handleOptionToggle}
-          data-option-id=${oId}
-          data-testid=${oId}
-        >
-          ${display} ${toRoundedPercent(PRo(option, store))}%
-          ${isActive ? " [on]" : ""}
-        </li>`;
-      });
+              return html`<div
+                class="option-toggle ${isActive ? "active" : ""}"
+                @click=${this.handleOptionToggle}
+                data-option-id=${oId}
+                data-testid=${oId}
+              >
+                <span class="option-name">${display}</span>
+                <span class="option-percent"
+                  >${toRoundedPercent(PRo(option, store))}%</span
+                >
+              </div>`;
+            });
 
-      return html`
-        <p>${f.display}</p>
-        <ul>
-          ${optionsHtml}
-        </ul>
-      `;
-    })}`;
+            return html`
+              <div class="filter-block">
+                <h3 class="filter-title">${f.display}</h3>
+                <div class="options-toggle-group">
+                  ${optionsHtml}
+                </div>
+                </div>
+              </div>
+            `;
+          })}
+        </div>
+      </div>`;
   };
 }
 

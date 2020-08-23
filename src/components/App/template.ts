@@ -23,7 +23,6 @@ const baseTemplate = (s1: unknown, s2: unknown) => html`
       ${s1}
     </div>
     <div class="filters">
-      <h3>Filters</h3>
       ${s2}
     </div>
   </div>
