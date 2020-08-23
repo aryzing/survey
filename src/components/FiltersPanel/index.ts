@@ -58,7 +58,11 @@ export class FiltersPanel extends Component {
 
         const { display, isActive } = option;
 
-        return html`<li @click=${this.handleOptionToggle} data-option-id=${oId}>
+        return html`<li
+          @click=${this.handleOptionToggle}
+          data-option-id=${oId}
+          data-testid=${oId}
+        >
           ${display} ${toRoundedPercent(PRo(option, store))}%
           ${isActive ? " [on]" : ""}
         </li>`;

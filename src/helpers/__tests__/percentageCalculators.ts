@@ -1,7 +1,7 @@
 import { seedStore } from "@/store/seedStore";
 import { store } from "@/store";
-import { survey } from "../__mockData__/survey";
-import { filterDefinition } from "../__mockData__/filterDefinition";
+import { survey } from "../../__mockData__/survey";
+import { filterDefinition } from "../../__mockData__/filterDefinition";
 import { PRa, PRFa, PRo } from "../percentageCalculators";
 
 /**
