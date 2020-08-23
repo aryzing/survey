@@ -43,18 +43,21 @@ export const styles = html`
       margin: 16px;
     }
 
-    .hack-for-grid-lines .row-container {
+    .hack-for-grid-lines .white-background {
       background-color: var(--color-white);
     }
 
     .row-container {
-      background-color: blue;
+      position: relative;
     }
 
     .answer-text-container {
       display: flex;
       justify-content: space-between;
       padding: 12px 8px;
+
+      position: relative;
+      z-index: 10;
     }
 
     .answer-text {
@@ -67,6 +70,35 @@ export const styles = html`
       font-size: 12px;
       line-height: 17px;
       font-weight: 600;
+    }
+
+    .line {
+      position: absolute;
+      border-right: 1px dashed black;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 3;
+    }
+
+    .bar {
+      position: absolute;
+      background: rgba(197, 207, 218, 0.2);
+      top: 0;
+      left: 0;
+      bottom: 0;
+      z-index: 2;
+      transition: width 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+    }
+
+    .white-background {
+      background-color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
     }
   </style>
 `;

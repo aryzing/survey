@@ -26,6 +26,12 @@ export const template = (
                 >${toRoundedPercent(percentToDisplay)}%</span
               >
             </div>
+            <div
+              class="bar"
+              style="width: ${toRoundedPercent(percentToDisplay)}%;"
+            ></div>
+            <div class="line" style="width: ${toRoundedPercent(a.PRa)}%;"></div>
+            <div class="white-background"></div>
           </div>`;
         })}
       </div>
