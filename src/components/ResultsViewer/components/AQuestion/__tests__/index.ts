@@ -10,13 +10,13 @@ describe("AQuestion Component", () => {
       answers: [
         {
           text: "test-answer-1",
-          PRFa: 0.11,
-          PRa: 0.12,
+          PRa: 0.11,
+          PRFa: 0.12,
         },
         {
           text: "test-answer-2",
-          PRFa: 0.21,
-          PRa: 0.22,
+          PRa: 0.21,
+          PRFa: 0.22,
         },
       ],
       hasActiveFilter: true,
@@ -27,9 +27,9 @@ describe("AQuestion Component", () => {
     expect(getByText("Multiple choice")).toMatchSnapshot();
     expect(getByText("test-answer-1")).toMatchSnapshot();
     expect(queryAllByText("11")).toHaveLength(0);
-    expect(getByText("12")).toMatchSnapshot();
+    expect(getByText("12%")).toMatchSnapshot();
     expect(getByText("test-answer-2")).toMatchSnapshot();
     expect(queryAllByText("21")).toHaveLength(0);
-    expect(getByText("22")).toMatchSnapshot();
+    expect(getByText("22%")).toMatchSnapshot();
   });
 });

@@ -31,22 +31,16 @@ exports[`AQuestion Component Renders properly 3`] = `
 `;
 
 exports[`AQuestion Component Renders properly 4`] = `
-<span>
+<span
+  class="percent"
+>
   <!---->
-  11
-  <!---->
+  12
+  %
 </span>
 `;
 
 exports[`AQuestion Component Renders properly 5`] = `
-<span>
-  <!---->
-  12
-  <!---->
-</span>
-`;
-
-exports[`AQuestion Component Renders properly 6`] = `
 <span
   class="answer-text"
 >
@@ -56,18 +50,12 @@ exports[`AQuestion Component Renders properly 6`] = `
 </span>
 `;
 
-exports[`AQuestion Component Renders properly 7`] = `
-<span>
-  <!---->
-  21
-  <!---->
-</span>
-`;
-
-exports[`AQuestion Component Renders properly 8`] = `
-<span>
+exports[`AQuestion Component Renders properly 6`] = `
+<span
+  class="percent"
+>
   <!---->
   22
-  <!---->
+  %
 </span>
 `;
