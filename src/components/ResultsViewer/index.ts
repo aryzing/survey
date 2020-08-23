@@ -36,6 +36,9 @@ export class ResultsViewer extends Component<Props> {
         };
       });
       return {
+        hasActiveFilter: Array.from(store.Options.values()).some(
+          (o) => o.isActive
+        ),
         question_type: question.question_type,
         title: question.title,
         answers,

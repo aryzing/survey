@@ -7,20 +7,31 @@ import { styles } from "./styles";
 export const template = (
   title: string,
   type: string,
-  answers: AnswerWithStats[]
+  answers: AnswerWithStats[],
+  hasActiveFilters: boolean
 ): TemplateResult => html`
   ${styles}
   <div class="container">
-    <h4>${title}</h4>
-    <ul>
-      ${answers.map((a) => {
-        return html`<li>
-          <span class="answer-text">${a.text}</span>
-          <span>${toRoundedPercent(a.PRa)}</span>
-          <span>${toRoundedPercent(a.PRFa)}</span>
-        </li>`;
-      })}
-    </ul>
-    <span>${type}</span>
+    <div class="question-title-container">
+      <span class="question-title">${title}</span>
+    </div>
+    <div class="hack-for-grid-lines">
+      <div class="results-container">
+        ${answers.map((a) => {
+          const percentToDisplay = hasActiveFilters ? a.PRFa : a.PRa;
+          return html`<div class="row-container">
+            <div class="answer-text-container">
+              <span class="answer-text">${a.text}</span>
+              <span class="percent"
+                >${toRoundedPercent(percentToDisplay)}%</span
+              >
+            </div>
+          </div>`;
+        })}
+      </div>
+    </div>
+    <div class="question-type-container">
+      <span class="question-type">${type}</span>
+    </div>
   </div>
 `;

@@ -12,7 +12,7 @@ export const template = (
 ): TemplateResult => html`
   ${styles}
   <div class="container">
-    <h1>${title}</h1>
+    <h1 class="title">${title}</h1>
 
     ${questionsWithStats.map((q) => html`${r(AQuestion, q)}`)}
   </div>

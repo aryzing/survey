@@ -1,15 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AQuestion Component Renders properly 1`] = `
-<h4>
+<span
+  class="question-title"
+>
   <!---->
   test-question-title
   <!---->
-</h4>
+</span>
 `;
 
 exports[`AQuestion Component Renders properly 2`] = `
-<span>
+<span
+  class="question-type"
+>
   <!---->
   Multiple choice
   <!---->

@@ -24,5 +24,11 @@ export const styles = html`
       grid-area: filters;
       background-color: var(--color-white);
     }
+
+    .logo {
+      width: 18px;
+      height: 18px;
+      margin: 16px;
+    }
   </style>
 `;

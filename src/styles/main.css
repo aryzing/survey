@@ -1,6 +1,7 @@
 @import 'styles/reset.css';
 @import 'styles/box-sizing.css';
 @import 'styles/vars.css';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto&display=swap');
 
 html,
 body {

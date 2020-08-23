@@ -7,7 +7,18 @@ import { styles } from "./styles";
 const baseTemplate = (s1: unknown, s2: unknown) => html`
   ${styles}
   <div class="container">
-    <nav class="side-nav"></nav>
+    <nav class="side-nav">
+      <svg
+        class="logo"
+        viewBox="0 0 16 16"
+        fill="white"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 16L6.40001 0H9.60004L16 16H0ZM7.96392 5.093L5.12426 12.5101H10.7713L7.96392 5.093Z"
+        />
+      </svg>
+    </nav>
     <div class="results">
       ${s1}
     </div>

@@ -11,9 +11,14 @@ export type Props = QuestionWithStats;
 
 export class AQuestion extends Component<Props> {
   render = (): TemplateResult => {
-    const { title, answers, question_type: type } = this.props;
+    const { title, answers, question_type: type, hasActiveFilter } = this.props;
 
-    return html`${template(title, questionTypes.get(type) ?? "", answers)}`;
+    return html`${template(
+      title,
+      questionTypes.get(type) ?? "",
+      answers,
+      hasActiveFilter
+    )}`;
   };
 }
 

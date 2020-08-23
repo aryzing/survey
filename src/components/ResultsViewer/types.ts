@@ -17,4 +17,8 @@ export interface AnswerWithStats extends Pick<Answer, "text"> {
 export interface QuestionWithStats
   extends Pick<Question, "title" | "question_type"> {
   answers: AnswerWithStats[];
+  /**
+   * Whether a filter is active.
+   */
+  hasActiveFilter: boolean;
 }
