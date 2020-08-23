@@ -1,6 +1,7 @@
 import { html } from "lit-html";
 
-export default html`
+// eslint-disable-next-line import/prefer-default-export
+export const styles = html`
   <style>
     :host {
       color: red;

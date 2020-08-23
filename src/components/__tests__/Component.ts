@@ -1,8 +1,8 @@
 /* eslint-disable max-classes-per-file */
 import { html } from "lit-html";
 import { screen } from "testing-library__dom";
-import render from "@/helpers/render";
-import Component from "../Component";
+import { render } from "@/helpers/render";
+import { Component } from "../Component";
 
 describe("Component base class", () => {
   interface Props {
@@ -80,10 +80,12 @@ describe("Component base class", () => {
     const mockLogError = jest.fn();
     jest.doMock("@/helpers/logger", () => ({
       __esModule: true,
-      default: mockLogError,
+      default: { mockLogError },
       logError: mockLogError,
     }));
-    const { default: ComponentWithMockedLogger } = await import("../Component");
+    const { Component: ComponentWithMockedLogger } = await import(
+      "../Component"
+    );
 
     class TestComponentWithoutRender extends ComponentWithMockedLogger {}
     customElements.define(

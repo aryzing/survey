@@ -1,6 +1,6 @@
 import { html, TemplateResult } from "lit-html";
-import template from "./template";
-import Component from "../../../Component";
+import { template } from "./template";
+import { Component } from "../../../Component";
 import { QuestionWithStats } from "../../types";
 
 export const questionTypes = new Map<string, string>([
@@ -9,7 +9,7 @@ export const questionTypes = new Map<string, string>([
 
 export type Props = QuestionWithStats;
 
-export default class AQuestion extends Component<Props> {
+export class AQuestion extends Component<Props> {
   render = (): TemplateResult => {
     const { title, answers, question_type: type } = this.props;
 

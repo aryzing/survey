@@ -1,9 +1,10 @@
-import toRoundedPercent from "@/helpers/toRoundedPercent";
+import { toRoundedPercent } from "@/helpers/toRoundedPercent";
 import { html, TemplateResult } from "lit-html";
 import type { AnswerWithStats } from "../../types";
-import styles from "./styles";
+import { styles } from "./styles";
 
-export default (
+// eslint-disable-next-line import/prefer-default-export
+export const template = (
   title: string,
   type: string,
   answers: AnswerWithStats[]

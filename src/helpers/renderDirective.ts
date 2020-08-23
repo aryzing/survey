@@ -1,6 +1,6 @@
-import Component from "@/components/Component";
+import { Component } from "@/components/Component";
 import { directive, Part, NodePart } from "lit-html";
-import logError from "./logger";
+import { logError } from "./logger";
 
 /**
  * This render factory is intended to be used to create a lit-html directive to
@@ -29,6 +29,5 @@ const renderFactory = <P, S>(
   part.setValue(new CustomElement(props));
 };
 
-const renderDirective = directive(renderFactory);
-
-export default renderDirective;
+// eslint-disable-next-line import/prefer-default-export
+export const renderDirective = directive(renderFactory);

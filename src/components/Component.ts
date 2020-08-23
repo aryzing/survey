@@ -1,7 +1,8 @@
-import logError from "@/helpers/logger";
+import { logError } from "@/helpers/logger";
 import { render as litRender, TemplateResult, html } from "lit-html";
 
-export default class Component<P = unknown, S = unknown> extends HTMLElement {
+// eslint-disable-next-line import/prefer-default-export
+export class Component<P = unknown, S = unknown> extends HTMLElement {
   props: Readonly<P>;
 
   state?: Readonly<S>;

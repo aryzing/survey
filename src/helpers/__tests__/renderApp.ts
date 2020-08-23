@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { screen } from "testing-library__dom";
-import renderApp from "../renderApp";
+import { renderApp } from "../renderApp";
 
 describe("Main app initialization", () => {
   const rootElementId = "root-element-test-id";
@@ -34,11 +34,13 @@ describe("Main app initialization", () => {
     const mockLogError = jest.fn();
     jest.doMock("@/helpers/logger", () => ({
       __esModule: true,
-      default: mockLogError,
+      default: { mockLogError },
       logError: mockLogError,
     }));
 
-    const { default: renderAppWithMockedLogger } = await import("../renderApp");
+    const { renderApp: renderAppWithMockedLogger } = await import(
+      "../renderApp"
+    );
 
     const mockAppId = "mock-app-test-id";
     const mockApp = html`<p data-testid=${mockAppId}>Mock app</p>`;

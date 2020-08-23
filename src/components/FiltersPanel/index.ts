@@ -1,11 +1,13 @@
 import { html, TemplateResult } from "lit-html";
-import logError from "@/helpers/logger";
-import store from "@/store";
-import toRoundedPercent from "@/helpers/toRoundedPercent";
-import Component from "../Component";
-import styles from "./styles";
+import { logError } from "@/helpers/logger";
+import { store } from "@/store";
+import { toRoundedPercent } from "@/helpers/toRoundedPercent";
+import { PRo } from "@/helpers/percentageCalculators";
+import { Component } from "../Component";
+import { styles } from "./styles";
 
-export default class FiltersPanel extends Component {
+// eslint-disable-next-line import/prefer-default-export
+export class FiltersPanel extends Component {
   unsubscribe: () => void;
 
   constructor(props: unknown) {
@@ -54,15 +56,11 @@ export default class FiltersPanel extends Component {
           return "";
         }
 
-        /**
-         * Represents PR(o) as described in the README.
-         */
-        const PRo = option.edgesRespondent.size / f.edgesRespondent.size;
-
         const { display, isActive } = option;
 
         return html`<li @click=${this.handleOptionToggle} data-option-id=${oId}>
-          ${display} =${toRoundedPercent(PRo)}= ${isActive ? " [on]" : ""}
+          ${display} ${toRoundedPercent(PRo(option, store))}%
+          ${isActive ? " [on]" : ""}
         </li>`;
       });
 

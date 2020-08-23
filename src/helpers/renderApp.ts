@@ -1,11 +1,12 @@
 import { render, TemplateResult } from "lit-html";
-import logError from "./logger";
+import { logError } from "./logger";
 
 /**
  * Mant to be used only once at the top of the application to render content
  * into the DOM.
  */
-const renderApp = (app: TemplateResult, id: string): void => {
+// eslint-disable-next-line import/prefer-default-export
+export const renderApp = (app: TemplateResult, id: string): void => {
   const rootElement = document.getElementById(id);
 
   if (!rootElement) {
@@ -14,5 +15,3 @@ const renderApp = (app: TemplateResult, id: string): void => {
     render(app, rootElement);
   }
 };
-
-export default renderApp;

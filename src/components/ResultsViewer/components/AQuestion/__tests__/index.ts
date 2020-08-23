@@ -1,6 +1,6 @@
-import render from "@/helpers/render";
+import { render } from "@/helpers/render";
 import type { QuestionWithStats } from "@/components/ResultsViewer/types";
-import AQuestion, { questionTypes } from "..";
+import { AQuestion } from "..";
 
 describe("AQuestion Component", () => {
   test("Renders properly", () => {

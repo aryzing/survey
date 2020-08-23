@@ -1,9 +1,17 @@
-import { GQuestion, GAnswer, GStore, GFilter } from "@/store/types";
+import { GQuestion, GAnswer, GStore, GFilter, GOption } from "@/store/types";
 
+/**
+ * For a given answer and question, will calculate the percentage of respondents
+ * for that question. More details in README.
+ */
 export const PRa = (answer: GAnswer, question: GQuestion): number => {
   return answer.edgesRespondent.size / question.edgesRespondent.size;
 };
 
+/**
+ * For a given answer and store state, will calculate the percentage of filtered
+ * respondents for that answer. More details in README.
+ */
 export const PRFa = (answer: GAnswer, store: GStore): number => {
   const activeOptions = Array.from(store.Options.values()).filter(
     (o) => o.isActive
@@ -63,6 +71,11 @@ export const PRFa = (answer: GAnswer, store: GStore): number => {
         filteredRespondents.length
     : 0;
 };
-export const PRo = () => {
-  return 3;
+
+export const PRo = (option: GOption, store: GStore): number => {
+  const filter = store.Filters.get(option.filterId);
+
+  if (!filter) return 0;
+
+  return option.edgesRespondent.size / filter.edgesRespondent.size;
 };

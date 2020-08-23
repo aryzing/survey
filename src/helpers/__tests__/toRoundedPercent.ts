@@ -1,4 +1,4 @@
-import toRoundedPercent from "../toRoundedPercent";
+import { toRoundedPercent } from "../toRoundedPercent";
 
 describe("To percent converter", () => {
   test("Converts numbers to they percent equivalents", () => {

@@ -1,8 +1,12 @@
 import { Survey, FilterDefinition } from "@/types";
 import { v4 as uuidv4 } from "uuid";
-import store from ".";
+import { store } from ".";
 
-export default (survey: Survey, filterDefinition: FilterDefinition): void => {
+// eslint-disable-next-line import/prefer-default-export
+export const seedStore = (
+  survey: Survey,
+  filterDefinition: FilterDefinition
+): void => {
   Object.entries(survey.respondent_demographics).forEach(([id, r]) => {
     store.Respondents.set(id, { ...r, id, edgesAnswer: new Set<string>() });
   });

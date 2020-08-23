@@ -1,9 +1,9 @@
 import { html, TemplateResult } from "lit-html";
-import logError from "@/helpers/logger";
+import { logError } from "@/helpers/logger";
 import { Survey, FilterDefinition } from "@/types";
-import initStore from "@/store/initStore";
-import store from "@/store";
-import Component from "../Component";
+import { seedStore } from "@/store/seedStore";
+import { store } from "@/store";
+import { Component } from "../Component";
 import { loadingTemplate, errorTemplate, dataTemplate } from "./template";
 
 export interface State {
@@ -19,7 +19,7 @@ export interface State {
   };
 }
 
-export default class TestTaskApp extends Component<unknown, State> {
+export class TestTaskApp extends Component<unknown, State> {
   unsubscribe: () => void;
 
   constructor(_props: unknown) {
@@ -106,7 +106,7 @@ export default class TestTaskApp extends Component<unknown, State> {
       },
     });
 
-    initStore(survey as Survey, filterDefinition as FilterDefinition);
+    seedStore(survey as Survey, filterDefinition as FilterDefinition);
     store.hasChanged();
   }
 

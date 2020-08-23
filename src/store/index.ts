@@ -35,7 +35,8 @@ const Answers = new Map<string, GAnswer>();
 
 const Filters = new Map<string, GFilter>();
 
-const store: GStore = {
+// eslint-disable-next-line import/prefer-default-export
+export const store: GStore = {
   subscribe,
   hasChanged,
   Options,
@@ -44,5 +45,3 @@ const store: GStore = {
   Answers,
   Filters,
 };
-
-export default store;

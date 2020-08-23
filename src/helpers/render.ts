@@ -1,4 +1,4 @@
-import Component from "@/components/Component";
+import { Component } from "@/components/Component";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { getQueriesForElement, BoundFunctions } from "testing-library__dom";
 
@@ -15,10 +15,10 @@ export type RenderReturn<P, S> = Utils<P, S> & BF;
  * `Component`s and hooks the rendered element with @testing-library/dom
  * helpers.
  */
-function render<P2, S2>(
+export const render = <P2, S2>(
   CustomElement: new (props: P2) => Component<P2, S2>,
   props: P2
-): RenderReturn<P2, S2> {
+): RenderReturn<P2, S2> => {
   const div = document.createElement("div");
   const customElement = new CustomElement(props);
   div.append(customElement);
@@ -39,6 +39,4 @@ function render<P2, S2>(
     ...utils,
     ...boundFunctions,
   };
-}
-
-export default render;
+};

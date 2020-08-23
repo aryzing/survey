@@ -1,8 +1,8 @@
 import { html, TemplateResult } from "lit-html";
-import render from "@/helpers/renderDirective";
-import ResultsViewer from "../ResultsViewer";
-import FiltersPanel from "../FiltersPanel";
-import styles from "./styles";
+import { renderDirective as r } from "@/helpers/renderDirective";
+import { ResultsViewer } from "../ResultsViewer";
+import { FiltersPanel } from "../FiltersPanel";
+import { styles } from "./styles";
 
 const baseTemplate = (s1: unknown, s2: unknown) => html`
   ${styles}
@@ -26,6 +26,6 @@ export const errorTemplate = (error: unknown): TemplateResult =>
 
 export const dataTemplate = (surveyTitle: string): TemplateResult =>
   baseTemplate(
-    html`${render(ResultsViewer, { surveyTitle })}`,
-    html`${render(FiltersPanel, null)}`
+    html`${r(ResultsViewer, { surveyTitle })}`,
+    html`${r(FiltersPanel, null)}`
   );
